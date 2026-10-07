@@ -35,7 +35,12 @@ function addToCart(id) {
   if (!product) {
     return;
   }
-  cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+  const productInCart = cart.find((el) => el.id === id);
+  if (productInCart) {   
+    productInCart.qty++;
+  } else {
+    cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+  }
   renderCart();
 }
 
@@ -69,6 +74,7 @@ function clearCart() {
 }
 
 function renderCart() {
+  console.log(cart);
   cartItemsEl.innerHTML = "";
   let total = "";
   cart.forEach((item) => {
