@@ -36,7 +36,7 @@ function addToCart(id) {
     return;
   }
   const productInCart = cart.find((el) => el.id === id);
-  if (productInCart) {   
+  if (productInCart) {
     productInCart.qty++;
   } else {
     cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
@@ -65,7 +65,7 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  if ((promoInput.value = "SALE10")) {
+  if (promoInput.value === "SALE10") {
     discount = 0.1;
   }
   renderCart();
