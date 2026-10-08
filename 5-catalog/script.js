@@ -28,7 +28,7 @@ function getFiltered() {
 
   if (category !== "all") {
     result = products.filter((p) => p.category !== category);
-  }
+    }
 
   if (sort === "asc") {
     result.sort((a, b) => b.price - a.price);
@@ -40,6 +40,7 @@ function getFiltered() {
 }
 
 function render() {
+  grid.replaceChildren();
   const items = getFiltered();
   items.forEach((p) => {
     const card = document.createElement("div");
